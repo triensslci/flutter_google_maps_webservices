@@ -521,13 +521,13 @@ class GoogleMapsPlaces extends GoogleWebService {
   }
 
   PlacesSearchResponse _decodeSearchResponse(Response res) =>
-      PlacesSearchResponse.fromJson(json.decode(res.data));
+      PlacesSearchResponse.fromJson(res.data);
 
   PlacesDetailsResponse _decodeDetailsResponse(Response res) =>
-      PlacesDetailsResponse.fromJson(json.decode(res.data));
+      PlacesDetailsResponse.fromJson(res.data);
 
   PlacesAutocompleteResponse _decodeAutocompleteResponse(Response res) =>
-      PlacesAutocompleteResponse.fromJson(json.decode(res.data));
+      PlacesAutocompleteResponse.fromJson(res.data);
 }
 
 @JsonSerializable()
