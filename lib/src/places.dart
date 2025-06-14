@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:http/http.dart';
+import 'package:dio/dio.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'core.dart';
@@ -22,7 +22,7 @@ class GoogleMapsPlaces extends GoogleWebService {
   GoogleMapsPlaces({
     String? apiKey,
     String? baseUrl,
-    Client? httpClient,
+    Dio? httpClient,
     Map<String, String>? apiHeaders,
   }) : super(
           apiKey: apiKey,
@@ -521,13 +521,13 @@ class GoogleMapsPlaces extends GoogleWebService {
   }
 
   PlacesSearchResponse _decodeSearchResponse(Response res) =>
-      PlacesSearchResponse.fromJson(json.decode(res.body));
+      PlacesSearchResponse.fromJson(json.decode(res.data));
 
   PlacesDetailsResponse _decodeDetailsResponse(Response res) =>
-      PlacesDetailsResponse.fromJson(json.decode(res.body));
+      PlacesDetailsResponse.fromJson(json.decode(res.data));
 
   PlacesAutocompleteResponse _decodeAutocompleteResponse(Response res) =>
-      PlacesAutocompleteResponse.fromJson(json.decode(res.body));
+      PlacesAutocompleteResponse.fromJson(json.decode(res.data));
 }
 
 @JsonSerializable()

@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:http/http.dart';
+import 'package:dio/dio.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'core.dart';
@@ -16,7 +16,7 @@ class GoogleMapsTimezone extends GoogleWebService {
   GoogleMapsTimezone({
     String? apiKey,
     String? baseUrl,
-    Client? httpClient,
+    Dio? httpClient,
     Map<String, String>? apiHeaders,
   }) : super(
           apiKey: apiKey,
@@ -66,7 +66,7 @@ class GoogleMapsTimezone extends GoogleWebService {
   }
 
   TimezoneResponse _decode(Response res) =>
-      TimezoneResponse.fromJson(json.decode(res.body));
+      TimezoneResponse.fromJson(json.decode(res.data));
 }
 
 @JsonSerializable(fieldRename: FieldRename.none)

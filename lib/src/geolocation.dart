@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:http/http.dart';
+import 'package:dio/dio.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'core.dart';
@@ -18,7 +18,7 @@ class GoogleMapsGeolocation extends GoogleWebService {
   GoogleMapsGeolocation({
     String? apiKey,
     String? baseUrl,
-    Client? httpClient,
+    Dio? httpClient,
     Map<String, String>? apiHeaders,
   }) : super(
           apiKey: apiKey,
@@ -118,7 +118,7 @@ class GoogleMapsGeolocation extends GoogleWebService {
   }
 
   GeolocationResponse _decode(Response res) {
-    return GeolocationResponse.fromJson(json.decode(res.body));
+    return GeolocationResponse.fromJson(json.decode(res.data));
   }
 }
 
