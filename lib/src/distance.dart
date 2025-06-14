@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -235,7 +234,7 @@ class GoogleDistanceMatrix extends GoogleWebService {
   }
 
   DistanceResponse _decode(Response res) =>
-      DistanceResponse.fromJson(json.decode(res.data));
+      DistanceResponse.fromJson(res.data);
 }
 
 @JsonSerializable()

@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -236,7 +235,7 @@ class GoogleMapsDirections extends GoogleWebService {
   }
 
   DirectionsResponse _decode(Response res) =>
-      DirectionsResponse.fromJson(json.decode(res.data));
+      DirectionsResponse.fromJson(res.data);
 }
 
 @JsonSerializable()

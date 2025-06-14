@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -66,7 +65,7 @@ class GoogleMapsTimezone extends GoogleWebService {
   }
 
   TimezoneResponse _decode(Response res) =>
-      TimezoneResponse.fromJson(json.decode(res.data));
+      TimezoneResponse.fromJson(res.data);
 }
 
 @JsonSerializable(fieldRename: FieldRename.none)

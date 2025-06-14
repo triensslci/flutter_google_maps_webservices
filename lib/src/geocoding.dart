@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'dart:convert';
+
 
 import 'package:dio/dio.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -146,7 +146,7 @@ class GoogleMapsGeocoding extends GoogleWebService {
   }
 
   GeocodingResponse _decode(Response res) =>
-      GeocodingResponse.fromJson(json.decode(res.data));
+      GeocodingResponse.fromJson(res.data);
 }
 
 @JsonSerializable()
